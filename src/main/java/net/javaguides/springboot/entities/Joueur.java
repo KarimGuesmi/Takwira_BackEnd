@@ -25,6 +25,7 @@ public class Joueur implements Serializable{
 	private String email;
 	private String password;
 	
+	
 	public Joueur() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -44,7 +45,9 @@ public class Joueur implements Serializable{
 		this.code = code;
 		this.email = email;
 		this.password = password;
+		
 	}
+	
 	public int getId() {
 		return id;
 	}
@@ -123,6 +126,7 @@ public class Joueur implements Serializable{
 				+ ", age=" + age + ", telephone=" + telephone + ", cite=" + cite + ", ville=" + ville + ", code=" + code
 				+ ", email=" + email + ", password=" + password + "]";
 	}
+	
 	
 //	
 }
