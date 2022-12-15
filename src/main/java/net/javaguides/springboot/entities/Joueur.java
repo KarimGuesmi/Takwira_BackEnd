@@ -16,6 +16,7 @@ public class Joueur implements Serializable{
 	private String equipe;
 	private String nom;
 	private String prenom;
+	private String username;
 	private String poste;
 	private int age;
 	private Long telephone;	
@@ -24,19 +25,25 @@ public class Joueur implements Serializable{
 	private Long code;
 	private String email;
 	private String password;
+	private String confirmpassword;
 	
 	
 	public Joueur() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Joueur(int id, String equipe, String nom, String prenom, String poste, int age, Long telephone, String cite,
-			String ville, Long code, String email, String password) {
+	
+	
+
+	public Joueur(int id, String equipe, String nom, String prenom, String username, String poste, int age,
+			Long telephone, String cite, String ville, Long code, String email, String password,
+			String confirmpassword) {
 		super();
-		
+		this.id = id;
 		this.equipe = equipe;
 		this.nom = nom;
 		this.prenom = prenom;
+		this.username = username;
 		this.poste = poste;
 		this.age = age;
 		this.telephone = telephone;
@@ -45,9 +52,9 @@ public class Joueur implements Serializable{
 		this.code = code;
 		this.email = email;
 		this.password = password;
-		
+		this.confirmpassword = confirmpassword;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -72,6 +79,15 @@ public class Joueur implements Serializable{
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 	public String getPoste() {
 		return poste;
 	}
@@ -120,13 +136,28 @@ public class Joueur implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public String getConfirmpassword() {
+		return confirmpassword;
+	}
+
+	public void setConfirmpassword(String confirmpassword) {
+		this.confirmpassword = confirmpassword;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "Joueur [id=" + id + ", equipe=" + equipe + ", nom=" + nom + ", prenom=" + prenom + ", poste=" + poste
-				+ ", age=" + age + ", telephone=" + telephone + ", cite=" + cite + ", ville=" + ville + ", code=" + code
-				+ ", email=" + email + ", password=" + password + "]";
+		return "Joueur [id=" + id + ", equipe=" + equipe + ", nom=" + nom + ", prenom=" + prenom + ", username="
+				+ username + ", poste=" + poste + ", age=" + age + ", telephone=" + telephone + ", cite=" + cite
+				+ ", ville=" + ville + ", code=" + code + ", email=" + email + ", password=" + password
+				+ ", confirmpassword=" + confirmpassword + "]";
 	}
+
+	
+
 	
 	
-//	
+	
 }

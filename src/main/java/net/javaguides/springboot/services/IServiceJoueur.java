@@ -12,5 +12,10 @@ public interface IServiceJoueur {
 	
 	public Joueur updateJoueur(Joueur joueur, Long id);
 	public void deleteJoueur(Long idJoueur);
+
+	public String addJoueurWTCP(Joueur joueur);
+	public String addJoueurWTUN(Joueur joueur);
 	
+	public Joueur findJoueurByUsername(String username);
+	public List<Joueur>findListJoueurByUsername(String username);
 }

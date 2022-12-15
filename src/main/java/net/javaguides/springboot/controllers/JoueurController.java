@@ -49,6 +49,30 @@ public class JoueurController {
 	public void deleteJoueur(@PathVariable("idJ") Long id) {
 		joueurServ.deleteJoueur(id);
 	}
+	
+	// Add Single Joueur Controller with test confirm password
+	@PostMapping(value = "/addJoueurWTCP")
+	public String addJoueurWTCP(@RequestBody Joueur joueur) {
+		return joueurServ.addJoueurWTCP(joueur);
+	}
+
+	// Add Single Joueur Controller with test Username
+	@PostMapping(value = "/addJoueurWTUN")
+	public String addJoueurWTUN(@RequestBody Joueur joueur) {
+		return joueurServ.addJoueurWTUN(joueur);
+	}
+			
+	// Get Joueur by searching it by Username
+	@GetMapping(value="/getJoueurByUsername/{username}")
+	public Joueur getJoueurByUsername(@PathVariable("username") String username) {
+		return joueurServ.findJoueurByUsername(username);
+	}
+	
+	// Get Joueur by Searching username which starts by a specific caracter
+	@GetMapping(value = "/getAllJoueursStartsBySameCh/{ch}")
+	public List<Joueur> getAllJoueursStartsBySameCh(@PathVariable("ch") String ch){
+		return joueurServ.findListJoueurByUsername(ch); 
+	}
 
 	
 }
