@@ -24,4 +24,20 @@ public class PasseurServImpl implements IServicePasseur{
 		return passeurRep.saveAll(listPasseur);
 	}
 
+	@Override
+	public PasseursTournois updatePasseur(PasseursTournois passeur, Long id) {
+		PasseursTournois pas = passeurRep.findById(id).get();
+		pas.setNom(passeur.getNom());
+		pas.setPrenom(passeur.getPrenom());
+		pas.setMp(passeur.getMp());
+		pas.setPasses(passeur.getPasses());
+		
+		return passeurRep.save(pas);
+	}
+
+	@Override
+	public void deletePasseur(Long idPasseur) {
+		passeurRep.deleteById(idPasseur);
+	}
+
 }

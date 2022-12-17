@@ -23,6 +23,24 @@ public class MatchesServImpl implements IServiceMatches{
 	public List<MatchesTournois> addListMatche(List<MatchesTournois> listMatche) {
 		return matcheRep.saveAll(listMatche);
 	}
+
+	@Override
+	public MatchesTournois updateMatche(MatchesTournois matche, Long id) {
+		MatchesTournois mtch = matcheRep.findById(id).get();
+		mtch.setEquipe1(matche.getEquipe1());
+		mtch.setEquipe2(matche.getEquipe2());
+		mtch.setDate(matche.getDate());
+		mtch.setHeure(matche.getHeure());
+		mtch.setTerrain(matche.getTerrain());
+		
+		return matcheRep.save(mtch);
+	}
+
+	@Override
+	public void deleteMatche(Long idMatche) {
+		matcheRep.deleteById(idMatche);
+		
+	}
 	
 
 }

@@ -24,4 +24,25 @@ public class ClassementServImpl implements IServiceClassement {
 		return classementRep.saveAll(listClassement);
 	}
 
+	//Update Classement
+	@Override
+	public ClassementTournois updateClassement(ClassementTournois classement, Long id) {
+		ClassementTournois clsm = classementRep.findById(id).get();
+		clsm.setEquipe(classement.getEquipe());
+		clsm.setMp(classement.getMp());
+		clsm.setV(classement.getV());
+		clsm.setD(classement.getD());
+		clsm.setN(classement.getN());
+		clsm.setButs(classement.getButs());
+		clsm.setPts(classement.getPts());
+		
+		return classementRep.save(clsm);
+	}
+
+	//Delete Classement
+	@Override
+	public void deleteClassement(Long idClassement) {
+		classementRep.deleteById(idClassement);
+	}
+
 }

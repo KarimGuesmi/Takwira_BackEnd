@@ -24,4 +24,20 @@ public class ResultatServImpl implements IServiceResultat {
 		return resultatRep.saveAll(listResultat);
 	}
 
+	@Override
+	public ResultatsTournois updateResultat(ResultatsTournois resultat, Long id) {
+		ResultatsTournois res = resultatRep.findById(id).get();
+		res.setEquipe1(resultat.getEquipe1());
+		res.setEquipe2(resultat.getEquipe2());
+		res.setButsEquipe1(resultat.getButsEquipe1());
+		res.setButsEquipe2(resultat.getButsEquipe2());
+		
+		return resultatRep.save(res);
+	}
+
+	@Override
+	public void deleteResultat(Long idResultat) {
+		resultatRep.deleteById(idResultat);
+	}
+
 }

@@ -24,4 +24,22 @@ public class TerrainServImpl implements IServiceTerrain{
 		return terrainRep.saveAll(listTerrain);
 	}
 
+	@Override
+	public Terrain updateTerrain(Terrain terrain, Long id) {
+		Terrain tr = terrainRep.findById(id).get();
+		tr.setNomTerrain(terrain.getNomTerrain());
+		tr.setResponsable(terrain.getResponsable());
+		tr.setTelephone(terrain.getTelephone());
+		tr.setCite(terrain.getCite());
+		tr.setVille(terrain.getVille());
+		
+		return terrainRep.save(tr);
+	}
+
+	@Override
+	public void deleteTerrain(Long idTerrain) {
+		terrainRep.deleteById(idTerrain);
+		
+	}
+
 }
