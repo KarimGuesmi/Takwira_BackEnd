@@ -1,11 +1,15 @@
 package net.javaguides.springboot.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Role {
@@ -17,6 +21,9 @@ public class Role {
 	@Enumerated(EnumType.STRING)
 	private RoleName rolename;
 
+	@ManyToMany(mappedBy = "listRole")
+	private List<User> listUsers = new ArrayList<>();
+	
 	public Role() {
 		super();
 		// TODO Auto-generated constructor stub
